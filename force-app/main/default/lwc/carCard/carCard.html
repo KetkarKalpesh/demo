@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title={carName} icon-name="utility:apex_plugin">
+        <div class="slds-var-m-around_medium">
+            <img src={pictureUrl} alt="Car Picture"/>
+            <lightning-record-view-form 
+            record-id={recordId}
+            object-api-name= "Wheel__c"
+            density="compact">
+            <lightning-output-field field-name={CATEGORY_FIELD}></lightning-output-field>
+            <lightning-output-field field-name={MAKE_FIELD}></lightning-output-field>
+            <lightning-output-field field-name={CONTROL_FIELD}></lightning-output-field>
+            <lightning-output-field field-name={FUEL_FIELD}></lightning-output-field>
+            <lightning-output-field field-name={MSRP_FIELD}></lightning-output-field>
+            <lightning-output-field field-name={SEATS_FIELD}></lightning-output-field>
+        </lightning-record-view-form>
+        </div>
+    </lightning-card>
+</template>

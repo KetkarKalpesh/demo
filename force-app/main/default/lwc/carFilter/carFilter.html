@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Car Filter" icon-name="standard:calibration" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        <div class="slds-var-m-horizontal_medium">
+            <lightning-input label="Serach" type="search"
+            value={filters.searchKey} onchange={handleSearchKeyChange}></lightning-input>
+
+            <section class="slider_section">
+                <lightning-slider 
+                    label="Max Price" 
+                    step="100" min="0" value={filters.maxPrice}
+                    max="999999"
+                    onchange={handleMaxPriceChange}></lightning-slider>
+            </section>
+
+             <section>
+                <h2>Category</h2>
+                    <template if:true={categories.data}>
+                        <template for:each={categories.data.values} for:item="category">
+                            <lightning-input 
+                                key={category.value} 
+                                label={category.label} 
+                                type="checkbox" 
+                                checked 
+                                data-value={category.value} 
+                                data-name=Category
+                                onchange={handleChange}></lightning-input>
+                        </template>
+                    </template>
+
+                    <template if:true={categories.error}>
+                        <div>{categoryError}</div>
+                    </template>
+            </section> 
+            
+            <section>
+                <h2>Make</h2>
+                    <template if:true={makeType.data}>
+                        <template for:each={makeType.data.values} for:item="manufacturer">
+                            <lightning-input 
+                                key={manufacturer.value} 
+                                label={manufacturer.label} 
+                                type="checkbox" 
+                                checked 
+                                data-value={manufacturer.value} 
+                                data-name="Make Type"
+                                onchange={handleChange}></lightning-input>
+                        </template>
+                    </template>
+
+                    <template if:true={makeType.error}>
+                        <div>{makeError}</div>
+                    </template>
+            </section>
+        </div>
+    </lightning-card>
+</template>

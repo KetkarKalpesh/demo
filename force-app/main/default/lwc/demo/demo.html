@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Getter Method">
+        <div class="slds-var-m-around_medium">
+            <p>My Name is {fullName}</p>
+        </div>
+    </lightning-card>
+    <br>
+    <lightning-card title="@track">
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="search" onchange={changeHandler} label="Type Name"></lightning-input>
+            <p>My Name is {profile.name}</p>
+        </div>
+    </lightning-card>
+    <br/>
+    <lightning-card title="Conditional Rendering">
+        <div class="slds-var-m-around_medium  slds-align_absolute-center">
+            <template if:false={showButton}>
+                <lightning-button 
+                variant="brand" 
+                label="Show" 
+                title="Show" 
+                onclick={handleClickShow}></lightning-button>
+            </template>
+            <template if:true={showContent}>
+                <div>Please click on close to hide.</div>
+                <br/>
+                <lightning-button 
+                variant="brand" 
+                label="Hide" 
+                title="Hide" 
+                onclick={handleClickClose}></lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>
